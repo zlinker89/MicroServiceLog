@@ -4,9 +4,13 @@ import { AppService } from './app.service';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { LogModule } from './modules/log/log.module';
 import { DatabaseModule } from './modules/database/database.module';
+import { MongooseModule } from '@nestjs/mongoose';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
+    MongooseModule.forRoot(process.env.URL_DB),
     ClientsModule.register([
       {
         name: 'LOG_SERVICE',

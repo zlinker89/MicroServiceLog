@@ -7,7 +7,7 @@ async function bootstrap() {
     transport: Transport.RMQ,
     options: {
       urls: [`amqp://franklin:Expertosip%402023.@localhost/`],
-        queue: 'email',
+        queue: 'log',
         queueOptions: {
           durable: true,
         },
